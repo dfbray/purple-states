@@ -87,7 +87,18 @@ svg#info {
   stroke-width: 0.25;
   stroke-linecap: round;
   stroke-linejoin: round;
-  fill: rgb(calc(255 * 0.50), var(--green), calc(255 * 0.50));
+}
+
+#red-inset #flood {
+    flood-color: red;
+}
+
+#blue-inset #flood {
+    flood-color: blue;
+}
+
+#yellow-inset #flood {
+    flood-color: yellow;
 }
 
 .map-info * {

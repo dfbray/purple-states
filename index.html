@@ -74,8 +74,60 @@
   <li><a href="#" onclick="changeCSS('css/2020.css', 2); tagYear(this)" id="current-year">2020</a> *</li>
 </ul>
 
+<ul role="navigation">
+  <li><a href="#" onclick="toggleLines('true'); ">Turn On Borders</a></li>
+  <li><a href="#" onclick="toggleLines('false'); ">Turn Off Borders</a></li>
+</ul>
+
 <svg version="1.1" id="map" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
 	 y="0px" viewBox="0 0 623.51 377.18" style="enable-background:new 0 0 623.51 377.18;" xml:space="preserve">
+<defs>
+
+<!-- Credit to this shelpful stackoverflow answer for internal borders:
+https://stackoverflow.com/a/42449363
+-->
+
+<filter id='red-inset' x='-50%' y='-50%' width='200%' height='200%'>
+  <!--inside-stroke-->
+  <feFlood id="flood" result="inside-color"/>
+  <feComposite class="stroke" in2="SourceAlpha" operator="in" result=""/>
+  <!--fill-area-->
+  <feMorphology class="stroke-radius" in="SourceAlpha" operator="erode" radius="0"/>
+  <feComposite in="SourceGraphic" operator="in" result="fill-area"/>
+  <!--merge graphics-->
+  <feMerge>
+    <feMergeNode in="inside-stroke"/>
+    <feMergeNode in="fill-area"/>
+  </feMerge>
+</filter>
+<filter id='blue-inset' x='-50%' y='-50%' width='200%' height='200%'>
+  <!--inside-stroke-->
+  <feFlood id="flood" result="inside-color"/>
+  <feComposite class="stroke" in2="SourceAlpha" operator="in" result=""/>
+  <!--fill-area-->
+  <feMorphology class="stroke-radius" in="SourceAlpha" operator="erode" radius="0"/>
+  <feComposite in="SourceGraphic" operator="in" result="fill-area"/>
+  <!--merge graphics-->
+  <feMerge>
+    <feMergeNode in="inside-stroke"/>
+    <feMergeNode in="fill-area"/>
+  </feMerge>
+</filter>
+<filter id='yellow-inset' x='-50%' y='-50%' width='200%' height='200%'>
+  <!--inside-stroke-->
+  <feFlood id="flood" result="inside-color"/>
+  <feComposite class="stroke" in2="SourceAlpha" operator="in" result=""/>
+  <!--fill-area-->
+  <feMorphology class="stroke-radius" in="SourceAlpha" operator="erode" radius="0"/>
+  <feComposite in="SourceGraphic" operator="in" result="fill-area"/>
+  <!--merge graphics-->
+  <feMerge>
+    <feMergeNode in="inside-stroke"/>
+    <feMergeNode in="fill-area"/>
+  </feMerge>
+</filter>
+</defs>
+
 <path id="WY" class="state" d="M237.88,97.35l-0.05,1.61l-0.06,1.61l-0.05,1.61l-0.06,1.61l-0.06,1.61l-0.05,1.62l-0.06,1.61
 	l-0.05,1.62l-0.06,1.61l-0.05,1.61l-0.06,1.62l-0.05,1.61l-0.06,1.62l-0.05,1.62l-0.06,1.62l-0.06,1.61l-1.59-0.06l-1.58-0.06
 	l-1.58-0.06l-1.59-0.07l-1.58-0.07l-1.59-0.07l-1.58-0.08l-1.58-0.07l-1.58-0.08l-1.59-0.08l-1.58-0.09l-1.59-0.08l-1.59-0.09

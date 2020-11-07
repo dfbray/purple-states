@@ -21,3 +21,33 @@ function tagYear(el) {
   el.setAttribute("id", "current-year");
 
 }
+
+function toggleLines(on) {
+
+  var outlines = document.getElementsByClassName("stroke");
+  var radii = document.getElementsByClassName("stroke-radius");
+  var states = document.getElementsByClassName("state");
+  
+  if(on == "true") {
+    for (index = 0; index < outlines.length; ++index) {
+      outlines[index].setAttribute("result", "inside-stroke");
+    }
+    for (index = 0; index < radii.length; ++index) {
+      radii[index].setAttribute("radius", ".5");
+    }
+    for (index = 0; index < states.length; ++index) {
+      states[index].setAttribute("stroke-width", "0");
+    }
+  }
+  else {
+    for (index = 0; index < outlines.length; ++index) {
+      outlines[index].setAttribute("result", "");
+    }
+    for (index = 0; index < radii.length; ++index) {
+      radii[index].setAttribute("radius", "0");
+    }
+    for (index = 0; index < states.length; ++index) {
+      states[index].setAttribute("stroke-width", "0.25");
+    }
+  }
+}
